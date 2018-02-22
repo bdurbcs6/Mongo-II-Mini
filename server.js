@@ -16,6 +16,10 @@ server.get('/', function(req, res) {
   res.status(200).json({ api: 'running' });
 });
 
+server.get('/books', (req, res) => {
+
+})
+
 mongoose.connect('mongodb://localhost/library').then(
   () => {
     const port = process.env.PORT || 3000;
