@@ -14,4 +14,11 @@ const AuthorSchema = new mongoose.Schema({
   createdOn: { type: Date, default: Date.now },
 });
 
+// virtuals do pre-calculations before data is returned
+
+AuthorSchema.virtual('fullName')
+  .get(() => {
+    return `${this.firstName} ${this.lastName}`;
+  });
+
 module.exports = mongoose.model('Author', AuthorSchema);
